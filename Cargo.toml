@@ -3,7 +3,19 @@ name = "rust-aws-lambda-dynamo"
 version = "0.1.0"
 authors = ["Tommy Malmqvist <tommy.malmqvist@codelabs.se>"]
 edition = "2018"
+autobins = false
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+serde = { version = "1.0", features = ["derive"] }
+lambda_runtime = "0.2.1"
+rusoto_core = {version = "0.41.0", default_features = false, features=["rustls"]}
+rusoto_dynamodb = {version = "0.41.0", default_features = false, features=["rustls"]}
+log = "0.4.8"
+simple_logger = "1.3.0"
+simple-error = "0.2.1"
+
+[[bin]]
+name = "bootstrap"
+path = "src/main.rs"
